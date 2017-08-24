@@ -1,6 +1,8 @@
 CentOS 7 baseimage
 ==================
 
+[![](https://images.microbadger.com/badges/image/ajoergensen/baseimage-centos.svg)](https://microbadger.com/images/ajoergensen/baseimage-centos "Get your own image badge on microbadger.com") [![Build Status](https://travis-ci.org/ajoergensen/baseimage-centos.svg?branch=master)](https://travis-ci.org/ajoergensen/baseimage-centos) [![](https://images.microbadger.com/badges/commit/ajoergensen/baseimage-centos.svg)](https://microbadger.com/images/ajoergensen/baseimage-centos "Get your own commit badge on microbadger.com")
+
 A baseimage based on CentOS 7 with s6 init and several 3rd party repositories.
 
 Bits and pieces have been sourced from other fine Docker images
