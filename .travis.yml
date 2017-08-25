@@ -11,9 +11,9 @@ script:
 - docker run --name $NAME -d $REPO:$TAG 
 - docker ps -a
 - sleep 5
-- docker logs $IMAGE
+- docker logs $NAME
 after_script:
-- docker rm -f $IMAGE
+- docker rm -f $NAME
 env:
   global:
   - NAME=baseimage-centos
