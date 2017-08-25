@@ -7,8 +7,8 @@ before_install:
 script:
 - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
 - echo $REPO:$TAG
-- docker build -t $REPO:$TAG .
-- docker run --name $IMAGE -d $REPO:$TAG 
+- IMAGE_NAME=$REPO ./hooks/build
+- docker run --name $NAME -d $REPO:$TAG 
 - docker ps -a
 - sleep 5
 - docker logs $IMAGE
@@ -16,7 +16,7 @@ after_script:
 - docker rm -f $IMAGE
 env:
   global:
-  - IMAGE=baseimage-centos
-  - REPO=ajoergensen/$IMAGE
+  - NAME=baseimage-centos
+  - REPO=ajoergensen/$NAME
 notifications:
   webhooks: https://fathomless-fjord-24024.herokuapp.com/notify
