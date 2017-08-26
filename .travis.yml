@@ -13,17 +13,17 @@ script:
 - sleep 5
 - docker logs $NAME
 - docker exec $NAME pgrep rsyslogd
-- docker exec $NAME pgrep crond
+- docker exec $NAME ps aux | grep -v grep | grep -vq "/usr/sbin/crond"
 - docker rm -f $NAME
 - docker run --name $NAME -e DISABLE_SYSLOG=TRUE -d $REPO:$TAG
 - docker ps -a
 - sleep 5
 - docker exec $NAME ps aux | grep -v grep | grep -vq rsyslogd
 - docker rm -f $NAME
-- docker run --name $NAME -e DISABLE_CRON=TRUE -d $REPO:$TAG
+- docker run --name $NAME -e DISABLE_CRON=FALSE -d $REPO:$TAG
 - docker ps -a
 - sleep 5
-- docker exec $NAME ps aux | grep -v grep | grep -vq "/usr/sbin/crond"
+- docker exec $NAME pgrep crond
 after_script:
 - docker rm -f $NAME
 env:
