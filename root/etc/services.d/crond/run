@@ -1,0 +1,15 @@
+#!/usr/bin/with-contenv bash
+shopt -s nocasematch
+if [[ $DEBUG == "true" ]]
+ then
+	set -x
+fi
+
+: ${CRON_EMAIL:="false"}
+
+if [[ $CRON_EMAIL == "false" ]]
+ then
+	FLAGS="-s"
+fi
+
+exec /usr/sbin/crond -n $FLAGS

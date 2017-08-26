@@ -18,7 +18,7 @@ RUN \
 	yum install -y https://centos7.iuscommunity.org/ius-release.rpm && \
 	yum install -y http://mirror.ghettoforge.org/distributions/gf/gf-release-latest.gf.el7.noarch.rpm && \
 	yum update -y && \
-	yum install -y rsyslog bash psmisc file which bash-completion bash-completion-extras curl wget ssmtp && \
+	yum install -y cronie rsyslog bash psmisc file which bash-completion bash-completion-extras curl wget ssmtp && \
 	wget -O /tmp/s6-overlay-amd64.tar.gz `curl -s https://api.github.com/repos/just-containers/s6-overlay/releases/latest | grep 'browser_' | cut -d\" -f4 | grep "s6-overlay-amd64.tar.gz$"` && \
 	tar xvzf /tmp/s6-overlay-amd64.tar.gz -C / --exclude="./bin" --exclude="./sbin" && \
 	#tar xvzf /tmp/s6-overlay-amd64.tar.gz -C /usr ./bin ./sbin && \
