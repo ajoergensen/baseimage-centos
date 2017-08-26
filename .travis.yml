@@ -13,7 +13,7 @@ script:
 - sleep 5
 - docker logs $NAME
 - docker exec $NAME pgrep rsyslogd
-- docker exec $NAME pgrep fcron
+- docker exec $NAME pgrep crond
 - docker rm -f $NAME
 - docker run --name $NAME -e DISABLE_SYSLOG=TRUE -d $REPO:$TAG
 - docker ps -a
