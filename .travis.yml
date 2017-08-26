@@ -14,6 +14,7 @@ script:
 - docker logs $NAME
 - docker exec $NAME pgrep rsyslogd
 - docker exec $NAME ps aux | grep -v grep | grep -vq "/usr/sbin/crond"
+- docker exec $NAME /sbin/setuser app env
 - docker rm -f $NAME
 - docker run --name $NAME -e DISABLE_SYSLOG=TRUE -d $REPO:$TAG
 - docker ps -a
