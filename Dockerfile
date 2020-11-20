@@ -7,7 +7,7 @@ COPY root /
 
 RUN \
 	yum install epel-release yum-utils -y && \
-	yum install -y https://centos7.iuscommunity.org/ius-release.rpm && \
+	yum install -y https://repo.ius.io/ius-release-el7.rpm && \
 	yum install -y http://mirror.ghettoforge.org/distributions/gf/gf-release-latest.gf.el7.noarch.rpm && \
 	yum update -y && \
 	yum install -y less cronie rsyslog bash psmisc file which bash-completion bash-completion-extras curl wget ssmtp jq && \
