@@ -24,6 +24,7 @@ RUN \
 	mkdir -p /app /config /defaults && \
 	rm /tmp/* /etc/rsyslog.d/listen.conf /etc/rsyslog.conf.* && \
 	yum clean all && \
+	find / -name \*.rpmnew -exec rm '{}' + && \
 	chmod -v +x /etc/cont-init.d/* /etc/services.d/*/run
 
 
